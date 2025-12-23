@@ -1,263 +1,178 @@
-<!DOCTYPE html>
+<!DOCTYPE html>imo
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy New Year Aadhii</title>
+<title>Happy New Year Aadhii 🎉💖</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
 body{
+  margin:0;
   font-family:'Segoe UI',sans-serif;
+  background: linear-gradient(135deg,#ff5fa2,#ff9acb);
+  text-align:center;
   overflow:hidden;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  min-height:100vh;
-  background: linear-gradient(135deg,#ff4f9a,#ff9acb);
-  animation:gradientShift 10s ease infinite alternate;
+  color:white;
 }
 
-/* GRADIENT ANIMATION */
-@keyframes gradientShift{
-  0%{background:linear-gradient(135deg,#ff4f9a,#ff9acb);}
-  50%{background:linear-gradient(135deg,#ff7fb3,#ffb3d9);}
-  100%{background:linear-gradient(135deg,#ff4f9a,#ff9acb);}
+h1{
+  font-size:2.5rem;
+  margin-top:20px;
+  animation:fadeIn 2s ease-in-out;
 }
 
-/* CONFETTI */
+.note{
+  display:none;
+  background:rgba(255,255,255,0.2);
+  padding:15px;
+  border-radius:15px;
+  margin:20px auto;
+  width:90%;
+  max-width:400px;
+  font-size:1rem;
+  line-height:1.5;
+  animation:fadeInNote 1.5s forwards;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+@keyframes fadeInNote{
+  from{opacity:0; transform:translateY(-20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* ---------------- Cartoon Girl ---------------- */
+.girl{
+  width:150px;
+  margin:auto;
+  animation:wave 2s infinite;
+}
+@keyframes wave{
+  0%,100%{transform:rotate(0);}
+  50%{transform:rotate(3deg);}
+}
+
+/* --------------- Gift ---------------- */
+.gift{
+  font-size:70px;
+  cursor:pointer;
+  margin-top:20px;
+  animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+}
+
+/* ---------------- Confetti ---------------- */
 .confetti{
   position:fixed;
-  top:-20px;
-  font-size:22px;
-  animation:fall linear forwards;
-  pointer-events:none;
-}
-@keyframes fall{to{transform:translateY(120vh);}}
-
-/* START */
-#start{
-  text-align:center;
-  color:white;
-  animation:fadeIn 1.2s ease;
-  width:90%;
-  max-width:500px;
-}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-
-/* CARTOON GIRL */
-#cartoon{
-  width:160px;
-  height:160px;
-  background:#ffd1dc;
-  border-radius:50%;
-  margin:auto;
-  position:relative;
-  animation:float 3s ease-in-out infinite;
-}
-.eye{
-  width:16px;height:16px;
-  background:#333;border-radius:50%;
-  position:absolute;top:50px;
-}
-.eye.left{left:50px}
-.eye.right{right:50px}
-.mouth{
-  width:50px;height:22px;
-  border-bottom:4px solid #333;
-  border-radius:0 0 50px 50px;
-  position:absolute;bottom:40px;left:55px;
-}
-.hand{
-  width:38px;height:16px;
-  background:#ffd1dc;
-  position:absolute;
-  right:-30px;
-  top:80px;
-  border-radius:12px;
-  transform-origin:left;
-  animation:wave 1.2s infinite;
-}
-@keyframes float{50%{transform:translateY(-15px)}}
-@keyframes wave{50%{transform:rotate(30deg)}}
-
-/* TEXT */
-h1{
-  font-size:3rem;
-  text-shadow:0 0 20px #ffb3d9;
-}
-p{
-  opacity:0;
-  animation:fadeUp 1s forwards 1.2s;
-  font-size:1.2rem;
-}
-@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
-
-button{
-  margin-top:25px;
-  padding:16px 36px;
-  border:none;
-  border-radius:35px;
-  background:white;
-  color:#ff4f9a;
-  font-size:1.2rem;
-  box-shadow:0 0 25px #ff77b7;
-  cursor:pointer;
-  opacity:0;
-  animation:fadeUp 1s forwards 1.6s;
-  transition:0.3s;
-}
-button:hover{transform:scale(1.1);}
-
-/* GIFT */
-#gift{display:none;text-align:center;margin-top:20px;}
-.box{
-  width:200px;height:140px;
-  background:#ff9acb;
-  border-radius:0 0 22px 22px;
-  position:relative;
-  margin:auto;
-}
-.lid{
-  width:200px;height:50px;
-  background:#ff6fb5;
-  position:absolute;
-  top:-50px;
-  border-radius:22px 22px 10px 10px;
-  transform-origin:bottom;
-  animation:openLid 1s forwards;
-}
-@keyframes openLid{to{transform:rotateX(80deg)}}
-
-/* NOTE */
-#note{
-  display:none;
-  background:#ffe1ef;
-  padding:28px;
-  border-radius:24px;
-  max-width:420px;
-  text-align:center;
-  color:#ff3f8e;
-  animation:zoomIn 1s ease;
-  box-shadow:0 0 30px #ff9acb;
-  font-size:1.1rem;
-  position:relative;
-  overflow:hidden;
-}
-@keyframes zoomIn{from{transform:scale(.6)}to{transform:scale(1)}}
-
-/* SPARKLE */
-.spark{
-  position:absolute;
+  top:-10px;
   font-size:24px;
-  animation:explode 1.3s forwards;
+  animation:fall 3s linear infinite;
 }
-@keyframes explode{to{transform:translate(var(--x),var(--y));opacity:0}}
+@keyframes fall{
+  to{transform:translateY(100vh);}
+}
 
-/* TEXT GLITTER */
-@keyframes glow{
-  0%{text-shadow:0 0 4px #fff, 0 0 6px #ff9acb;}
-  50%{text-shadow:0 0 8px #fff,0 0 15px #ff77b7;}
-  100%{text-shadow:0 0 4px #fff, 0 0 6px #ff9acb;}
+/* ---------------- Fireworks ---------------- */
+.firework{
+  position:fixed;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#fff;
+  pointer-events:none;
+  animation:fireworkAnim 1s ease-out forwards;
 }
+@keyframes fireworkAnim{
+  0%{transform:scale(1) translate(0,0); opacity:1;}
+  100%{transform:scale(2) translate(var(--x), var(--y)); opacity:0;}
+}
+
 </style>
 </head>
+
 <body>
 
-<!-- MUSIC -->
-<audio id="music" preload="auto">
-  <source src="https://cdn.pixabay.com/download/audio/2022/10/30/audio_6df3bbdc4a.mp3">
+<!-- Background Music -->
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2c1fdc8e6f.mp3" type="audio/mpeg">
 </audio>
 
-<!-- START -->
-<div id="start">
-  <div id="cartoon">
-    <div class="eye left"></div>
-    <div class="eye right"></div>
-    <div class="mouth"></div>
-    <div class="hand"></div>
-  </div>
-  <h1>Hey Aadhii</h1>
-  <p>Do you even know how precious your smile is?</p>
-  <button onclick="openGift()">Open My Gift 🎁</button>
-</div>
+<!-- Confetti Elements Container -->
+<div id="confettiContainer"></div>
 
-<!-- GIFT -->
-<div id="gift">
-  <div class="box">
-    <div class="lid"></div>
-  </div>
-</div>
+<!-- Cute Girl / Teddy -->
+<img src="https://i.ibb.co/5K1D3Zf/girl-wave.png" alt="Cute Girl" class="girl">
 
-<!-- NOTE -->
-<div id="note">
-  <h3 style="animation:glow 1.5s infinite;">Happy New Year Adithya Das</h3>
-  <p id="text"></p>
+<h1>Hey Aadhii 👋</h1>
+
+<!-- Gift -->
+<div class="gift" onclick="openGift()">🎁</div>
+
+<!-- Note -->
+<div class="note" id="note">
+Your smile is very precious.<br><br>
+You are such a good girl, stay happy always, every time, everywhere.<br><br>
+I wish you an enjoyable loving year with full happiness.<br><br>
+You can make your family proud.<br><br>
+And wishing for your success.<br><br>
+You are an innocent girl 💎<br>
+Stay happy always and keep your smile 😊
 </div>
 
 <script>
-/* NOTE TEXT */
-const message=`You are such a precious girl.
-Stay happy always, every time, everywhere.
+// ---------------- Background Music ----------------
+document.getElementById("music").play().catch(()=>{}); // Autoplay restriction
 
-I wish you an enjoyable loving year with full happiness.
-You can make your family happy also proud.
-And wishing for your success.
+// ---------------- Confetti ----------------
+function createConfetti(){
+  const container = document.getElementById("confettiContainer");
+  const confettiSymbols = ["🍬","❤️","🎉","🎁"];
+  let c = document.createElement("div");
+  c.className = "confetti";
+  c.style.left = Math.random()*100 + "vw";
+  c.style.fontSize = 20 + Math.random()*15 + "px";
+  c.innerHTML = confettiSymbols[Math.floor(Math.random()*confettiSymbols.length)];
+  container.appendChild(c);
+  setTimeout(()=>c.remove(),3000);
+}
+setInterval(createConfetti,150);
 
-You are an innocent girl 💎
-Stay happy always and keep your smile 🤍`;
-
-let i=0;
-function typeText(){
-  if(i<message.length){
-    document.getElementById("text").innerHTML+=
-      message[i]==="\n"?"<br>":message[i];
-    i++;
-    setTimeout(typeText,35);
+// ---------------- Fireworks ----------------
+function createFirework(x,y){
+  for(let i=0;i<20;i++){
+    let f=document.createElement("div");
+    f.className="firework";
+    f.style.left=x+"px";
+    f.style.top=y+"px";
+    f.style.setProperty('--x',(Math.random()*200-100)+'px');
+    f.style.setProperty('--y',(Math.random()*200-100)+'px');
+    f.style.background=['#ffdd00','#ff4f9a','#ff77b7','#ffffff'][Math.floor(Math.random()*4)];
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),1000);
   }
 }
 
-/* FIREWORKS */
-function fireworks(){
-  for(let i=0;i<150;i++){
-    let s=document.createElement("div");
-    s.className="spark";
-    s.innerHTML=Math.random()>0.5?"✨":"💖";
-    s.style.left="50%";
-    s.style.top="50%";
-    s.style.setProperty("--x",(Math.random()*600-300)+"px");
-    s.style.setProperty("--y",(Math.random()*-500)+"px");
-    document.body.appendChild(s);
-    setTimeout(()=>s.remove(),1500);
-  }
-}
-
-/* CONFETTI */
-setInterval(()=>{
-  let icons=["🍬","❤️","🎉","🎁","💖","✨"];
-  let c=document.createElement("div");
-  c.className="confetti";
-  c.innerHTML=icons[Math.floor(Math.random()*icons.length)];
-  c.style.left=Math.random()*100+"vw";
-  c.style.animationDuration=3+Math.random()*2+"s";
-  document.body.appendChild(c);
-  setTimeout(()=>c.remove(),5000);
-},180);
-
-/* OPEN GIFT */
+// ---------------- Gift Click ----------------
 function openGift(){
-  const music=document.getElementById("music");
-  music.currentTime=0;
-  music.play();
-
-  document.getElementById("start").style.display="none";
-  document.getElementById("gift").style.display="block";
-
-  setTimeout(()=>{
-    fireworks();
-    document.getElementById("gift").style.display="none";
-    document.getElementById("note").style.display="block";
-    typeText();
-  },1300);
+  // Play music
+  const music = document.getElementById("music");
+  music.play().catch(()=>{});
+  
+  // Show note
+  document.getElementById("note").style.display="block";
+  
+  // Fireworks at random positions
+  for(let i=0;i<5;i++){
+    let x = window.innerWidth/2 + (Math.random()*200-100);
+    let y = window.innerHeight/2 + (Math.random()*200-100);
+    createFirework(x,y);
+  }
 }
 </script>
 
